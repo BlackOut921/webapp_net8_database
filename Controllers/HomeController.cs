@@ -17,16 +17,13 @@ namespace webapp_net8_database.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult Index() => View();
+		public ActionResult Index() => View();
 
 		[HttpGet]
-		public IActionResult JSTest() => View();
-
-		[HttpGet]
-		public IActionResult AddEntry() => View();
+		public ActionResult AddEntry() => View();
 
 		[HttpPost]
-		public IActionResult AddEntry([FromForm]MyDbModel model)
+		public ActionResult AddEntry([FromForm]MyDbModel model)
 		{
 			if(ModelState.IsValid)
 			{
@@ -41,7 +38,7 @@ namespace webapp_net8_database.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult EditEntry([FromRoute]int id)
+		public ActionResult EditEntry([FromRoute]int id)
 		{
 			if(ModelState.IsValid)
 			{
@@ -56,7 +53,7 @@ namespace webapp_net8_database.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult EditEntry([FromForm]MyDbModel model)
+		public ActionResult EditEntry([FromForm]MyDbModel model)
 		{
 			if(ModelState.IsValid)
 			{
@@ -75,7 +72,7 @@ namespace webapp_net8_database.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult DeleteEntry([FromRoute]int id)
+		public ActionResult DeleteEntry([FromRoute]int id)
 		{
 			if(ModelState.IsValid)
 			{

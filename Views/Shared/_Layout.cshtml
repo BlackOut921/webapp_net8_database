@@ -10,11 +10,10 @@
 </head>
 <body class="bg-body">
 	<header>
-		@await Html.PartialAsync("_NavPartial")
-		@RenderSection("_pageHeader", false)
+		@await Html.PartialAsync("_PartialNav")
+		@RenderSection("CustomHeader", false)
 	</header>
 	<main class="container">@RenderBody()</main>
-    <footer>_footer</footer>
     <script src="~/bootstrap/js/bootstrap.bundle.js" crossorigin="anonymous" async></script>
 </body>
 </html>
