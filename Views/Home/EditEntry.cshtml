@@ -1,0 +1,47 @@
+﻿@using webapp_net8_database.Models
+@model MyDbModel
+
+@{
+	ViewData["Title"] = "Edit Entry";
+}
+
+<script>
+	function ConfirmDelete() {
+		return confirm("Delete entry?") ? true : false;
+	}
+</script>
+
+<h1 class="display-1">@ViewData["Title"]</h1>
+
+<form method="post" asp-controller="Home" asp-action="EditEntry" name="fEditName" class="p-2 mb-5">
+	<div class="row mb-3">
+		<label asp-for="@Model.Id" class="col-sm-1 col-form-label"></label>
+		<div class="col">
+			<input asp-for="@Model.Id" class="form-control-plaintext" readonly />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label asp-for="@Model.Name" class="col-sm-1 col-form-label"></label>
+		<div class="col">
+			<input asp-for="@Model.Name" value="@Model.Name" class="form-control" required />
+		</div>
+	</div>
+
+	<div class="row mb-3">
+		<label asp-for="@Model.TimeStamp" class="col-sm-1 col-form-label"></label>
+		<div class="col">
+			<input asp-for="@Model.TimeStamp" class="form-control" readonly />
+		</div>
+	</div>
+
+	<input type="submit" class="btn btn-success" />
+	<a asp-controller="Home" asp-action="Index" class="btn btn-outline-dark">Cancel</a>
+
+	<div asp-validation-summary="All" class="text-danger"></div>
+</form>
+
+<form method="post" onsubmit="return ConfirmDelete()" asp-controller="Home" asp-action="DeleteEntry" asp-route-id="@Model.Id" class="p-2 border-top">
+	<input asp-for="@Model.Id" class="form-label visually-hidden" />
+	<input type="submit" value="Delete" class="btn btn-danger" />
+</form>

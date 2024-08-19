@@ -1,0 +1,11 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+
+@section _pageHeader {
+	<div class="p-2 bg-danger-subtle text-danger">_pageHeader</div>
+}
+
+<h1 class="display-1">@ViewData["Title"]</h1>
+
+@await Component.InvokeAsync("TestDb")
